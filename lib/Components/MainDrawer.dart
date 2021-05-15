@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:online_bazar/Screens/LoginScreen/LoginScreen.dart';
 import 'package:online_bazar/Utilities/ThemeOf.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -17,13 +18,34 @@ class MainDrawer extends StatelessWidget {
               leading: Icon(Icons.settings),
             ),
             ListTile(
-              title: Text("Edit Profile", style: theme(context).textTheme.button),
+              title:
+                  Text("Edit Profile", style: theme(context).textTheme.button),
               leading: Icon(Icons.person_rounded),
             ),
             ListTile(
-              title:
-                  Text("Change Language", style: theme(context).textTheme.button),
+              title: Text("Change Language",
+                  style: theme(context).textTheme.button),
               leading: Icon(Icons.language),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  children: [
+                    TextButton(
+                      onPressed: () => Navigator.pushNamed(
+                          context, LoginScreen.routeLoginScreen),
+                      child: Text('Log Out'),
+                    ),
+                    Spacer(),
+                    Text('© bazaryonline')
+                  ],
+                ),
+              ),
             ),
           ],
         ),

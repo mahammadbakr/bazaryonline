@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(milliseconds: 1000), () {
       // Do Something Before it Goes to Home Screen
 
-      Navigator.pushNamed(context, HomeScreen.routeHomeScreen);
+      Navigator.pushNamed(context, LoginScreen.routeLoginScreen);
     });
   }
 
