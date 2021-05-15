@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:online_bazar/Screens/HomeScreen/Tabs/CartTab.dart';
 import 'package:online_bazar/Screens/HomeScreen/Tabs/HomeTab.dart';
 import 'package:online_bazar/Screens/HomeScreen/Tabs/ProfileTab.dart';
 import 'package:online_bazar/Screens/HomeScreen/Tabs/SearchTab.dart';
 
-enum NavigationType { home, search, profile }
+enum NavigationType { home, search, cart, profile }
 
 class AppSettingsProvider extends ChangeNotifier {
   NavigationType currentNav = NavigationType.home;
@@ -14,7 +15,9 @@ class AppSettingsProvider extends ChangeNotifier {
         ? currentNav = NavigationType.home
         : index == 1
             ? currentNav = NavigationType.search
-            : currentNav = NavigationType.profile;
+            : index == 2
+                ? currentNav = NavigationType.cart
+                : currentNav = NavigationType.profile;
     notifyListeners();
   }
 
@@ -28,7 +31,8 @@ class AppSettingsProvider extends ChangeNotifier {
         ? index = 0
         : currentNav == NavigationType.search
             ? index = 1
-            : index = 2;
+            :  currentNav == NavigationType.cart
+        ? index = 2 : index = 3;
     return index;
   }
 
@@ -38,7 +42,8 @@ class AppSettingsProvider extends ChangeNotifier {
         ? tab = HomeTab()
         : currentNav == NavigationType.search
             ? tab = SearchTab()
-            : tab = ProfileTab();
+            : currentNav == NavigationType.cart
+        ? tab = CartTab() : tab = ProfileTab();
     return tab;
   }
 
@@ -48,15 +53,18 @@ class AppSettingsProvider extends ChangeNotifier {
         ? tabName = "Home"
         : currentNav == NavigationType.search
             ? tabName = "Search"
-            : tabName = "Profile";
+            :currentNav == NavigationType.cart
+        ? tabName = "Cart"
+        : tabName = "Profile";
     return tabName;
   }
 
-  List<String> navigationNames = ["Home", "Search", "Profile"];
+  List<String> navigationNames = ["Home", "Search", "Cart", "Profile"];
 
   List<Widget> navigationIcons = [
     Icon(Icons.home),
     Icon(Icons.search),
+    Icon(Icons.shopping_cart),
     Icon(Icons.person)
   ];
 }

@@ -41,7 +41,15 @@ class HomeScreen extends StatelessWidget {
               icon: state.navigationIcons[2],
               label: state.navigationNames[2],
             ),
+            BottomNavigationBarItem(
+              icon: state.navigationIcons[3],
+              label: state.navigationNames[3],
+            ),
           ],
+          backgroundColor: theme(context).backgroundColor,
+          unselectedItemColor: theme(context).accentColor,
+          selectedLabelStyle: theme(context).textTheme.bodyText2,
+          unselectedLabelStyle: theme(context).textTheme.bodyText2,
           currentIndex: state.getCurrentNavigation(),
           selectedItemColor: theme(context).primaryColor,
           onTap: (newState) {

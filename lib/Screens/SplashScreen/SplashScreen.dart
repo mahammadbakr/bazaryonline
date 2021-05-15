@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:online_bazar/Constants.dart';
+import 'package:online_bazar/Screens/HomeScreen/HomeScreen.dart';
 import 'package:online_bazar/Screens/LoginScreen/LoginScreen.dart';
 import 'package:online_bazar/Utilities/ThemeOf.dart';
 
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(milliseconds: 1000), () {
       // Do Something Before it Goes to Home Screen
 
-      Navigator.pushNamed(context, LoginScreen.routeLoginScreen);
+      Navigator.pushNamed(context, HomeScreen.routeHomeScreen);
     });
   }
 
